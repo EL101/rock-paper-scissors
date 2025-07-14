@@ -17,3 +17,12 @@ function getHumanChoice() {
     return userInput;
 }
 
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+
+    if (humanChoice === computerChoice) {
+        console.log("Tie! You both chose " + humanChoice + "!");
+    }
+    
+}
