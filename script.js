@@ -17,12 +17,25 @@ function getHumanChoice() {
     return userInput;
 }
 
-
+function displayWinOrLose(won, humanChoice, computerChoice) {
+    if (won) {
+        humanScore++;
+        console.loge("You Win! " + humanChoice + " beats " + computerChoice + "!");
+    }
+    else {
+        computerScore++;
+        console.loge("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+    }
+}
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === computerChoice) {
         console.log("Tie! You both chose " + humanChoice + "!");
     }
-    
+    else if (humanChoice === "rock") {
+        if (computerChoice === "paper") {
+
+        }
+    }
 }
