@@ -27,6 +27,7 @@ function displayWinOrLose(won, humanChoice, computerChoice) {
         console.loge("You Lose! " + computerChoice + " beats " + humanChoice + "!");
     }
 }
+
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
@@ -35,7 +36,26 @@ function playRound(humanChoice, computerChoice) {
     }
     else if (humanChoice === "rock") {
         if (computerChoice === "paper") {
-
+            displayWinOrLose(false, humanChoice, computerChoice);
+        }
+        else {
+            displayWinOrLose(true, humanChoice, computerChoice);
+        }
+    }
+    else if (humanChoice === "paper") {
+        if (computerChoice === "scissors") {
+            displayWinOrLose(false, humanChoice, computerChoice);
+        }
+        else {
+            displayWinOrLose(true, humanChoice, computerChoice);
+        }
+    }
+    else {
+        if (computerChoice === "rock") {
+            displayWinOrLose(false, humanChoice, computerChoice);
+        }
+        else {
+            displayWinOrLose(true, humanChoice, computerChoice);
         }
     }
 }
