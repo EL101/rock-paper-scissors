@@ -18,13 +18,16 @@ function getHumanChoice() {
 }
 
 function displayWinOrLose(won, humanChoice, computerChoice) {
-    if (won) {
+    if (won === 1) {
+        alert("Tie! You both chose " + humanChoice + "!");
+    }
+    else if (won === 2) {
         humanScore++;
-        console.loge("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        alert("You Win! " + humanChoice + " beats " + computerChoice + "!");
     }
     else {
         computerScore++;
-        console.loge("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        alert("You Lose! " + computerChoice + " beats " + humanChoice + "!");
     }
 }
 
@@ -32,30 +35,41 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === computerChoice) {
-        console.log("Tie! You both chose " + humanChoice + "!");
+        displayWinOrLose(1, humanChoice, computerChoice);
     }
     else if (humanChoice === "rock") {
         if (computerChoice === "paper") {
-            displayWinOrLose(false, humanChoice, computerChoice);
+            displayWinOrLose(0, humanChoice, computerChoice);
         }
         else {
-            displayWinOrLose(true, humanChoice, computerChoice);
+            displayWinOrLose(2, humanChoice, computerChoice);
         }
     }
     else if (humanChoice === "paper") {
         if (computerChoice === "scissors") {
-            displayWinOrLose(false, humanChoice, computerChoice);
+            displayWinOrLose(0, humanChoice, computerChoice);
         }
         else {
-            displayWinOrLose(true, humanChoice, computerChoice);
+            displayWinOrLose(2, humanChoice, computerChoice);
         }
     }
     else {
         if (computerChoice === "rock") {
-            displayWinOrLose(false, humanChoice, computerChoice);
+            displayWinOrLose(0, humanChoice, computerChoice);
         }
         else {
-            displayWinOrLose(true, humanChoice, computerChoice);
+            displayWinOrLose(2, humanChoice, computerChoice);
         }
     }
 }
+
+function playGame() {
+    let rounds = 5;
+    while (rounds--) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+    }
+}
+
+playGame();
