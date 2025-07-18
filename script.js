@@ -15,22 +15,21 @@ function getComputerChoice() {
 
 function displayWinOrLose(won, humanChoice, computerChoice) {
     if (won === 1) {
-        console.log("Tie! You both chose " + humanChoice + "!");
+        result.textContent = ("Tie! You both chose " + humanChoice + "!");
     }
     else if (won === 2) {
         humanScore++;
-        console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        result.textContent = ("You Win! " + humanChoice + " beats " + computerChoice + "!");
     }
     else {
         computerScore++;
-        console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        result.textContent = ("You Lose! " + computerChoice + " beats " + humanChoice + "!");
     }
 }
 
 function playRound(event) {
     humanChoice = event.target.id;
     computerChoice = getComputerChoice();
-    console.log(humanChoice);
 
     if (humanChoice === computerChoice) {
         displayWinOrLose(1, humanChoice, computerChoice);
@@ -63,3 +62,5 @@ function playRound(event) {
 
 const userChoice = document.querySelector(".choice");
 userChoice.addEventListener("click", playRound);
+
+const result = document.querySelector(".result");
