@@ -25,6 +25,9 @@ function displayWinOrLose(won, humanChoice, computerChoice) {
         computerScore++;
         result.textContent = ("You Lose! " + computerChoice + " beats " + humanChoice + "!");
     }
+    humanScoreboard.textContent = `Human: ${humanScore}`;
+    computerScoreboard.textContent = `Computer: ${computerScore}`;
+
 }
 
 function playRound(event) {
@@ -58,9 +61,7 @@ function playRound(event) {
             displayWinOrLose(2, humanChoice, computerChoice);
         }
     }
-    humanScoreboard.textContent = `Human: ${humanScore}`;
-    computerScoreboard.textContent = `Computer: ${computerScore}`;
-
+    
 }
 
 const userChoice = document.querySelector(".choice");
