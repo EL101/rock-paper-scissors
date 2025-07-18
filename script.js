@@ -32,8 +32,8 @@ function displayWinOrLose(won, humanChoice, computerChoice) {
         result.textContent = ("You Lose! " + computerChoice + " beats " + humanChoice + "!");
         result.classList.add("lose");
     }
-    humanScoreboard.textContent = `Human: ${humanScore}`;
-    computerScoreboard.textContent = `Computer: ${computerScore}`;
+    humanScoreboard.firstElementChild.textContent = humanScore;
+    computerScoreboard.firstElementChild.textContent = computerScore;
 }
 
 function playRound(event) {
