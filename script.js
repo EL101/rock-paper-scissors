@@ -12,27 +12,25 @@ function getComputerChoice() {
     return "scissors";
 }
 
-function getHumanChoice() {
-    let userInput = prompt("Choose rock, paper, or scissors");
-    return userInput;
-}
 
 function displayWinOrLose(won, humanChoice, computerChoice) {
     if (won === 1) {
-        alert("Tie! You both chose " + humanChoice + "!");
+        console.log("Tie! You both chose " + humanChoice + "!");
     }
     else if (won === 2) {
         humanScore++;
-        alert("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
     }
     else {
         computerScore++;
-        alert("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
+function playRound(event) {
+    humanChoice = event.target.id;
+    computerChoice = getComputerChoice();
+    console.log(humanChoice);
 
     if (humanChoice === computerChoice) {
         displayWinOrLose(1, humanChoice, computerChoice);
@@ -63,13 +61,5 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    let rounds = 5;
-    while (rounds--) {
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-        playRound(humanChoice, computerChoice);
-    }
-}
-
-playGame();
+const userChoice = document.querySelector(".choice");
+userChoice.addEventListener("click", playRound);
