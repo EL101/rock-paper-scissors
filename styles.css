@@ -41,3 +41,16 @@ button {
     text-align: center;
 }
 
+.tie {
+    color: orange;
+}
+.win {
+    color: green;
+}
+.lose {
+    color: red;
+}
+
+.result, .scoreboard {
+    font-size: 40px;
+}

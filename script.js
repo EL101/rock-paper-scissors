@@ -14,20 +14,26 @@ function getComputerChoice() {
 
 
 function displayWinOrLose(won, humanChoice, computerChoice) {
+    classNames = Array.from(result.classList);
+    if (classNames.length === 2) {
+        result.classList.remove(classNames[1]);
+    }
     if (won === 1) {
         result.textContent = ("Tie! You both chose " + humanChoice + "!");
+        result.classList.add("tie");
     }
     else if (won === 2) {
         humanScore++;
         result.textContent = ("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        result.classList.add("win");
     }
     else {
         computerScore++;
         result.textContent = ("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        result.classList.add("lose");
     }
     humanScoreboard.textContent = `Human: ${humanScore}`;
     computerScoreboard.textContent = `Computer: ${computerScore}`;
-
 }
 
 function playRound(event) {
