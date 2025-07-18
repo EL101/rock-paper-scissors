@@ -58,9 +58,15 @@ function playRound(event) {
             displayWinOrLose(2, humanChoice, computerChoice);
         }
     }
+    humanScoreboard.textContent = `Human: ${humanScore}`;
+    computerScoreboard.textContent = `Computer: ${computerScore}`;
+
 }
 
 const userChoice = document.querySelector(".choice");
 userChoice.addEventListener("click", playRound);
 
 const result = document.querySelector(".result");
+const humanScoreboard = document.querySelector(".human-score");
+const computerScoreboard = document.querySelector(".computer-score");
+
