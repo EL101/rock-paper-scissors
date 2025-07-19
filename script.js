@@ -70,9 +70,17 @@ function playRound(event) {
     
 }
 
-const userChoice = document.querySelector(".choice");
-userChoice.addEventListener("click", playRound);
-
+const userChoice = document.querySelectorAll("button");
+const choiceImages = document.querySelectorAll("img");
+for (let choice of userChoice) {
+    choice.addEventListener("click", playRound);
+    choice.addEventListener("mousedown", (event) => event.target.classList.toggle("button-clicked"));
+    choice.addEventListener("mouseup", (event) => event.target.classList.toggle("button-clicked"));
+}
+for (let image of choiceImages) {
+    image.addEventListener("mousedown", event => image.parentElement.classList.toggle("button-clicked"));
+    image.addEventListener("mouseup", event => image.parentElement.classList.toggle("button-clicked"));
+}
 const result = document.querySelector(".result");
 const humanScoreboard = document.querySelector(".human-score");
 const computerScoreboard = document.querySelector(".computer-score");

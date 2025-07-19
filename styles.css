@@ -36,12 +36,17 @@ h1 {
     gap: 30px;
     margin-bottom: 40px;
 }
+
 button {
     width: 200px;
     height: 200px;
-    padding: 50px;
+    padding: 0px 50px;
     font-size: 25px;
     border-radius: 30px;
+    background-color: antiquewhite;
+}
+.button-clicked {
+    background-color: rgb(172, 148, 117);
 }
 
 .tie {
