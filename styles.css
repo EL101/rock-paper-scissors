@@ -62,7 +62,11 @@ button {
 .result, .scoreboard {
     font-size: 30px;
 }
-
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 h3 {
     margin-bottom: 30px;
     font-size: 40px;
@@ -79,4 +83,11 @@ h3 {
 
 .winOrLose {
     font-size: 40px;
+}
+.restart {
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    color: red;
+    background-color: black;
 }

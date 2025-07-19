@@ -12,6 +12,38 @@ function getComputerChoice() {
     return "scissors";
 }
 
+function displayFinalScreen() {
+    for (let choice of userChoice) {
+        choice.style.display = "none";
+    }
+    result.classList.toggle("winOrLose");
+    if (humanScore === 5) {
+        result.textContent = `You Win! Final Score ${humanScore} - ${computerScore}`;
+    }
+    else {
+        result.textContent = `You Lose :( Final Score ${humanScore} - ${computerScore}`;
+    }
+    
+    const restart = document.createElement("button");
+    restart.textContent = "Restart";
+    restart.className = "restart";
+    restart.addEventListener("click", (event) => {
+        restart.remove();
+        result.textContent = "";
+        classNames = Array.from(result.classList);
+        if (classNames.length === 2) {
+            result.classList.remove(classNames[1]);
+        }
+        for (let choice of userChoice) {
+            choice.style.display = "";
+        }
+        humanScore = 0;
+        computerScore = 0;
+        humanScoreboard.firstElementChild.textContent = humanScore;
+        computerScoreboard.firstElementChild.textContent = computerScore;
+    });
+    result.append(restart);
+}
 
 function displayWinOrLose(won, humanChoice, computerChoice) {
     classNames = Array.from(result.classList);
@@ -36,20 +68,7 @@ function displayWinOrLose(won, humanChoice, computerChoice) {
     computerScoreboard.firstElementChild.textContent = computerScore;
 
     if (humanScore === 5 || computerScore === 5) {
-        for (let choice of userChoice) {
-            choice.remove();
-        }
-        result.remove();
-        const winOrLoseScreen = document.querySelector(".winOrLose");
-        
-        if (humanScore === 5) {
-            winOrLoseScreen.textContent = `You Win! Final Score ${humanScore} - ${computerScore}`;
-            winOrLoseScreen.classList.toggle("win");
-        }
-        else {
-            winOrLoseScreen.textContent = `You Lose :( Final Score ${humanScore} - ${computerScore}`;
-            winOrLoseScreen.classList.toggle("lose");
-        }
+        displayFinalScreen();
     }
 }
 
