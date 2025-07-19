@@ -30,6 +30,8 @@ function displayFinalScreen() {
     restart.addEventListener("click", (event) => {
         restart.remove();
         result.textContent = "";
+        result.classList.toggle("winOrLose");
+
         classNames = Array.from(result.classList);
         if (classNames.length === 2) {
             result.classList.remove(classNames[1]);
