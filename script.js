@@ -34,6 +34,23 @@ function displayWinOrLose(won, humanChoice, computerChoice) {
     }
     humanScoreboard.firstElementChild.textContent = humanScore;
     computerScoreboard.firstElementChild.textContent = computerScore;
+
+    if (humanScore === 5 || computerScore === 5) {
+        for (let choice of userChoice) {
+            choice.remove();
+        }
+        result.remove();
+        const winOrLoseScreen = document.querySelector(".winOrLose");
+        
+        if (humanScore === 5) {
+            winOrLoseScreen.textContent = `You Win! Final Score ${humanScore} - ${computerScore}`;
+            winOrLoseScreen.classList.toggle("win");
+        }
+        else {
+            winOrLoseScreen.textContent = `You Lose :( Final Score ${humanScore} - ${computerScore}`;
+            winOrLoseScreen.classList.toggle("lose");
+        }
+    }
 }
 
 function playRound(event) {
